@@ -13,7 +13,7 @@ public class Appointment {
 
     @Id
     @GeneratedValue
-    private long ID;
+    private long id;
     private String time;
     private String appointmentDay;
 
@@ -27,12 +27,12 @@ public class Appointment {
     @JsonIgnore
     private Patient patient;
 
-    public long getID() {
-        return ID;
+    public long getId() {
+        return id;
     }
 
-    public void setID(long ID) {
-        this.ID = ID;
+    public void setId(long id) {
+        this.id = id;
     }
 
     public String getTime() {

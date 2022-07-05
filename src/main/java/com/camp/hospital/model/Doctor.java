@@ -9,7 +9,7 @@ public class Doctor {
 
     @Id
     @GeneratedValue
-    private Long ID;
+    private Long id;
     private String name;
     private String surName;
     private String branch;
@@ -18,12 +18,12 @@ public class Doctor {
     @JoinColumn(name="doctor_id")
     private Set<Appointment> appointments;*/
 
-    public Long getID() {
-        return ID;
+    public Long getId() {
+        return id;
     }
 
-    public void setID(Long ID) {
-        this.ID = ID;
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getName() {

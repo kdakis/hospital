@@ -17,11 +17,11 @@ public class Patient {
     @JoinColumn(name="tc")
     private Set<Appointment> appointments;*/
 
-    public Long getTc() {
+    public Long getId() {
         return id;
     }
 
-    public void setTc(Long id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

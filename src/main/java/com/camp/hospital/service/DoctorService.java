@@ -2,6 +2,7 @@ package com.camp.hospital.service;
 
 import com.camp.hospital.model.Appointment;
 import com.camp.hospital.model.Doctor;
+import com.camp.hospital.model.Patient;
 import com.camp.hospital.repository.AppointmentRepository;
 import com.camp.hospital.repository.DoctorRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,6 +22,10 @@ public class DoctorService {
 
     public List<Doctor> getDoctors(){
         return doctorRepository.findAll();
+    }
+
+    public Doctor getDoctorById(Long id){
+        return doctorRepository.findById(id).orElse(null);
     }
 
 }

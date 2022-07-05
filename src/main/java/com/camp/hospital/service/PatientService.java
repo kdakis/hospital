@@ -17,9 +17,9 @@ public class PatientService {
         return patientRepository.save(patient);
     }
 
-    /*public Patient getPatientById(Long tc){
-        return patientRepository.findById(tc).orElse(null);
-    }*/
+    public Patient getPatientById(Long id){
+        return patientRepository.findById(id).orElse(null);
+    }
 
     public List<Patient> findAll(){
         return patientRepository.findAll();
