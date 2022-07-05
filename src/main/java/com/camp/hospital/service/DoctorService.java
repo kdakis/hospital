@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.NoSuchElementException;
 
 @Service
 public class DoctorService {
@@ -26,6 +27,19 @@ public class DoctorService {
 
     public Doctor getDoctorById(Long id){
         return doctorRepository.findById(id).orElse(null);
+    }
+
+    public Doctor getDoctor(String email, String password) {
+        Doctor doctor;
+        try {
+            doctor = doctorRepository.findByEmail(email);
+            if (password.equals(doctor.getPassword())) {
+                return doctor;
+            }
+            throw new Exception("Unauthorised");
+        } catch (Exception e) {
+            throw new NoSuchElementException(e.getMessage());
+        }
     }
 
 }
