@@ -25,4 +25,8 @@ public class DoctorController {
     public List<Doctor> getAll() {
         return doctorService.getDoctors();
     }
+   @PostMapping("/login")
+    public Doctor loginCheck(@RequestParam String email, @RequestParam String password){
+        return doctorService.getDoctor(email,password);
+   }
 }
