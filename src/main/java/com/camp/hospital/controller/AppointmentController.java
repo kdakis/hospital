@@ -37,6 +37,6 @@ public class AppointmentController {
         return appointmentService.findByPatient_Tc(patient_tc);
     }*/
 }
+/// Merhaba bende Ali
+//Kazım
 
-
-/// Merhaba bende Ali 
