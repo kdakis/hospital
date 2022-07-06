@@ -30,4 +30,9 @@ public class DoctorController {
     public List<String> getAllBranches(){
         return doctorService.getAllBranches();
     }
+   @PostMapping("/login")
+    public Doctor loginCheck(@RequestParam String email, @RequestParam String password){
+        return doctorService.getDoctor(email,password);
+   }
+
 }
