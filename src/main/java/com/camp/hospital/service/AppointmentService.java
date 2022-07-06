@@ -20,7 +20,6 @@ public class AppointmentService {
     private PatientService patientService;
     @Autowired
     private DoctorService doctorService;
-
     public Appointment saveAppointment(AppointmentCreate appointment) {
         Patient patient = patientService.getPatientById(appointment.getPatientId());
         Doctor doctor = doctorService.getDoctorById(appointment.getDoctorId());
@@ -33,9 +32,18 @@ public class AppointmentService {
         return appointmentRepository.save(toSave);
     }
 
-    public List<Appointment> getAllAppointments(Optional<Long> patientId){
+//    public List<Appointment> findByDoctor_id(Long Doctor_id){
+//        return appointmentRepository.showAppointmentDoctor(Doctor_id);
+//    }
+    public List<Appointment> getAllAppointmentsByPatientId(Optional<Long> patientId){
         if(patientId.isPresent()){
             return appointmentRepository.findByPatientId(patientId.get());
+        }
+        return appointmentRepository.findAll();
+    }
+    public List<Appointment> getAllAppointmentsByDoctorId(Optional<Long> doctorId){
+        if(doctorId.isPresent()){
+            return appointmentRepository.findByDoctorId(doctorId.get());
         }
         return appointmentRepository.findAll();
     }

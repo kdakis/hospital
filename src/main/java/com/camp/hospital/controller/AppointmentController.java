@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.util.Optional;
 
-@RequestMapping("/appointment")
+@RequestMapping("/appointment" )
 @RestController
 public class AppointmentController {
 
@@ -27,10 +27,15 @@ public class AppointmentController {
     public List<Appointment> findByPatient_Tc(@RequestParam Long patient_tc) {
         return appointmentService.findByPatient_Tc(patient_tc);
     }*/
-    @GetMapping("{patientId}")
+    @GetMapping("/patientAppo")
     public List<Appointment> getByPatient(@RequestParam Optional<Long> patientId) {
-        return appointmentService.getAllAppointments(patientId);
+        return appointmentService.getAllAppointmentsByPatientId(patientId);
     }
+    @GetMapping("/doctorAppo")
+    public List<Appointment> getByDoctor(@RequestParam Optional<Long> doctorId) {
+        return appointmentService.getAllAppointmentsByDoctorId(doctorId);
+    }
+
 
     /*@GetMapping("/findByPatient/{patient_tc}")
     public Appointment findByPatient_Tc(@PathVariable String patient_tc) {
@@ -39,4 +44,5 @@ public class AppointmentController {
 }
 /// Merhaba bende Ali
 //Kazım
+//Bende Mustafa
 
