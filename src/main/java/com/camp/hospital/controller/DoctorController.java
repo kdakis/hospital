@@ -29,10 +29,15 @@ public class DoctorController {
     public List<Doctor> getAll() {
         return doctorService.getDoctors();
     }
+
+    @GetMapping("/branches")
+    @CrossOrigin(origins = "http://localhost:8080")
+    public List<String> getAllBranches(){
+        return doctorService.getAllBranches();
+    }
    @PostMapping("/login")
     public ResponseEntity<Doctor> loginCheck(@RequestParam String email, @RequestParam String password) throws Exception {
         return new ResponseEntity<>(doctorService.getDoctor(email,password), HttpStatus.OK);
    }
-
 
 }

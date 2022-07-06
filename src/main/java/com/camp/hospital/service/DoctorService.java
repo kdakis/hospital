@@ -30,13 +30,17 @@ public class DoctorService {
     }
 
 
-
     public Doctor getDoctor(String email, String password) throws  Exception {
         Doctor doctor = doctorRepository.findByEmail(email);
-            if(doctor==null || !password.equals(doctor.getPassword()))
-                throw new EntityNotFoundException("Unauthorised");
+        if (doctor == null || !password.equals(doctor.getPassword()))
+            throw new EntityNotFoundException("Unauthorised");
         return doctor;
 
     }
+    public List<String> getAllBranches(){
+        return doctorRepository.findAllBranches();
+    }
+
+
 
 }
