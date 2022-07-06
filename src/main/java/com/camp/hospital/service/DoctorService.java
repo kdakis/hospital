@@ -29,6 +29,10 @@ public class DoctorService {
         return doctorRepository.findById(id).orElse(null);
     }
 
+    public List<String> getAllBranches(){
+        return doctorRepository.findAllBranches();
+    }
+
     public Doctor getDoctor(String email, String password) {
         Doctor doctor;
         try {

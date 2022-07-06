@@ -25,4 +25,9 @@ public class DoctorController {
     public List<Doctor> getAll() {
         return doctorService.getDoctors();
     }
+
+    @GetMapping("/branches")
+    public List<String> getAllBranches(){
+        return doctorService.getAllBranches();
+    }
 }

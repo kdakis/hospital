@@ -27,7 +27,7 @@ public class AppointmentController {
     public List<Appointment> findByPatient_Tc(@RequestParam Long patient_tc) {
         return appointmentService.findByPatient_Tc(patient_tc);
     }*/
-    @GetMapping("{patientId}")
+    @GetMapping
     public List<Appointment> getByPatient(@RequestParam Optional<Long> patientId) {
         return appointmentService.getAllAppointments(patientId);
     }
