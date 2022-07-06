@@ -27,6 +27,7 @@ public class DoctorController {
     }
 
     @GetMapping("/branches")
+    @CrossOrigin(origins = "http://localhost:8080")
     public List<String> getAllBranches(){
         return doctorService.getAllBranches();
     }
