@@ -9,6 +9,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.print.Doc;
 import java.util.List;
 import java.util.Optional;
 
@@ -38,6 +39,10 @@ public class DoctorController {
    @PostMapping("/login")
     public ResponseEntity<Doctor> loginCheck(@RequestParam String email, @RequestParam String password) throws Exception {
         return new ResponseEntity<>(doctorService.getDoctor(email,password), HttpStatus.OK);
+   }
+   @GetMapping("/doctorBranch")
+    public List<Doctor> doctorBranch(@RequestParam String branch){
+        return doctorService.getAllDoctorByBranch(branch);
    }
 
 }

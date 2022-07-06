@@ -13,4 +13,9 @@ public interface DoctorRepository extends JpaRepository<Doctor, Long> {
     String FIND_BRANCHES = "SELECT DISTINCT branch FROM doctor";
 
     @Query(value = FIND_BRANCHES, nativeQuery = true)
-    List<String> findAllBranches();}
+    List<String> findAllBranches();
+
+
+    List<Doctor> findByBranch(String branch);
+}
+

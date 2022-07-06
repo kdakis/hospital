@@ -41,6 +41,8 @@ public class DoctorService {
         return doctorRepository.findAllBranches();
     }
 
-
+    public List<Doctor> getAllDoctorByBranch(String branch){
+        return doctorRepository.findByBranch(branch);
+    }
 
 }
