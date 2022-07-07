@@ -25,8 +25,7 @@ public class AppointmentService {
         Doctor doctor = doctorService.getDoctorById(appointment.getDoctorId());
         Appointment toSave = new Appointment();
         toSave.setId(appointment.getId());
-        toSave.setTime(appointment.getTime());
-        toSave.setAppointmentDay(appointment.getAppointmentDay());
+        toSave.setDateTime(appointment.getDateTime());
         toSave.setPatient(patient);
         toSave.setDoctor(doctor);
         return appointmentRepository.save(toSave);

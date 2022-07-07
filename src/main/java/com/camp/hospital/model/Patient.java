@@ -7,7 +7,6 @@ import java.util.Set;
 public class Patient {
 
     @Id
-    @GeneratedValue
     private Long id;
     private String name;
     private String surName;

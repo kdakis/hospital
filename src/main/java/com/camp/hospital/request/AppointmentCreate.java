@@ -1,11 +1,25 @@
 package com.camp.hospital.request;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+import org.springframework.format.annotation.DateTimeFormat;
+
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+
 public class AppointmentCreate {
     private long id;
-    private String time;
-    private String appointmentDay;
     private Long patientId;
     private Long doctorId;
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm")
+    private LocalDateTime dateTime;
+
+    public LocalDateTime getDateTime() {
+        return dateTime;
+    }
+
+    public void setDateTime(LocalDateTime dateTime) {
+        this.dateTime = dateTime;
+    }
 
     public Long getDoctorId() {
         return doctorId;
@@ -23,21 +37,6 @@ public class AppointmentCreate {
         this.id = id;
     }
 
-    public String getTime() {
-        return time;
-    }
-
-    public void setTime(String time) {
-        this.time = time;
-    }
-
-    public String getAppointmentDay() {
-        return appointmentDay;
-    }
-
-    public void setAppointmentDay(String appointmentDay) {
-        this.appointmentDay = appointmentDay;
-    }
 
     public Long getPatientId() {
         return patientId;

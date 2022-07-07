@@ -1,11 +1,9 @@
 package com.camp.hospital.model;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.fasterxml.jackson.annotation.JsonIdentityInfo;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.ObjectIdGenerators;
+import com.fasterxml.jackson.annotation.*;
 
 import javax.persistence.*;
+import java.time.LocalDateTime;
 
 
 @Entity
@@ -14,8 +12,8 @@ public class Appointment {
     @Id
     @GeneratedValue
     private long id;
-    private String time;
-    private String appointmentDay;
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm")
+    private LocalDateTime dateTime;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name="doctor_id", nullable = false)
@@ -35,22 +33,6 @@ public class Appointment {
         this.id = id;
     }
 
-    public String getTime() {
-        return time;
-    }
-
-    public void setTime(String time) {
-        this.time = time;
-    }
-
-    public String getAppointmentDay() {
-        return appointmentDay;
-    }
-
-    public void setAppointmentDay(String appointmentDay) {
-        this.appointmentDay = appointmentDay;
-    }
-
     public Doctor getDoctor() {
         return doctor;
     }
@@ -65,5 +47,12 @@ public class Appointment {
 
     public void setPatient(Patient patient) {
         this.patient = patient;
+    }
+
+    public LocalDateTime getDateTime() {
+        return dateTime;
+    }
+    public void setDateTime(LocalDateTime dateTime) {
+        this.dateTime = dateTime;
     }
 }
